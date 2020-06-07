@@ -1,0 +1,3 @@
+/mnt/e/Gitrepo/RFQ_Decoder_For_LDPC_Code/build/CMakeFiles/rebuild_cache.dir
+/mnt/e/Gitrepo/RFQ_Decoder_For_LDPC_Code/build/CMakeFiles/runner.dir
+/mnt/e/Gitrepo/RFQ_Decoder_For_LDPC_Code/build/CMakeFiles/edit_cache.dir
