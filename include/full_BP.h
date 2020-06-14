@@ -22,6 +22,7 @@ double check_node_operation_min_double(std::vector<double> & input);
 double check_node_operation_minstar(std::vector<double> & input);
 double check_node_operation_att_min_double(std::vector<double> & input, const double att);
 unsigned check_node_operation_min(std::vector<unsigned> & input, const unsigned & quan_size);
+std::vector <double> check_node_operation_fast_minsum(std::vector<double> & input);
 //--------------------------------------------------
 void LP(double &in, int l, int r);
 void quan_two_vec(std::vector<std::vector<double>>& aa, int l, int r);
@@ -29,3 +30,6 @@ void quan_one_vec(std::vector<double> &aa, int l, int r);
 //--------------------------------------------------
 void display(std::vector<int> input);
 void display(std::vector<std::vector<int>> input);
+//--------------------------------------------------
+std::vector <double> check_sepcail_quan (int quan_size);
+std::vector <double> vari_sepcail_recons (int quan_size);

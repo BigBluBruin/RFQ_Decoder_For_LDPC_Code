@@ -65,11 +65,23 @@ double vari_node_operation(std::vector<double> input, int l, int r)
 {
     double output, fir, sec;
     fir = input[0];
+    double rpow, lpow, minpow, maxpow;
+    rpow = pow(2, r);
+    lpow = pow(2, (l - 1));
+    minpow = (-1) * lpow;
+    maxpow = lpow - (double)1.0 / (double)rpow;
     for (unsigned index = 0; index < input.size() - 1; index++)
     {
         sec = input[index + 1];
-        fir = fir+sec;
-        LP(fir,l,r);
+        fir = fir + sec;
+        if (fir > maxpow)
+        {
+            fir = maxpow;
+        }
+        if (fir < minpow)
+        {
+            fir = minpow;
+        }
     }
     output = fir;
     return output;
@@ -101,7 +113,7 @@ unsigned min_sum(unsigned &input1, unsigned &input2, const unsigned &quantizatio
 
 double min_sum(double & input1, double & input2)
 {
-    return sgn(input1)*sgn(input2)*std::min(input1,input2);
+    return sgn(input1)*sgn(input2)*std::min(abs(input1),abs(input2));
 }
 
 unsigned check_node_operation_min(std::vector<unsigned> &input, const unsigned &quan_size)
@@ -220,6 +232,53 @@ double check_node_operation_minstar(std::vector<double> & input)
     return fir;
 }
 
+std::vector <double> check_node_operation_fast_minsum(std::vector<double> & input)
+{
+    std::vector <double> output(-1,input.size());
+    int min_pos;
+    double min_1, min_2;
+    double total_sgn=1;
+    for (const auto aa: input)
+        total_sgn*=sgn(aa);
+    if (abs(input[0])>abs(input[1]))
+    {
+        min_pos=1;
+        min_1 = abs(input[1]);
+        min_2 = abs(input[0]);
+    }
+    else
+    {
+        min_pos=0;
+        min_1 = abs(input[0]);
+        min_2 = abs(input[1]);
+    }
+    for (unsigned ii = 2 ; ii<input.size();ii++)
+    {
+        if (abs(input[ii])<min_1)
+        {
+            min_pos = ii;
+            min_2 = min_1;
+            min_1 = abs(input[ii]);
+        }
+        else if(abs(input[ii])<min_2)
+        {
+            min_2 = abs(input[ii]);
+        }
+    }
+    for (unsigned ii = 0; ii<input.size(); ii++)
+    {
+        if(min_pos == ii)
+        {
+            output[ii]=sgn(input[ii])*total_sgn*min_1;
+        }
+        else
+        {
+            output[ii]=sgn(input[ii])*total_sgn*min_2;
+        }        
+    }
+    return output;
+}
+
 void display(std::vector<int> input)
 {
     for (const auto aa:input)
@@ -235,4 +294,32 @@ void display(std::vector<std::vector<int>> input)
     {
         display(aa);
     }
+}
+
+
+std::vector <double> check_sepcail_quan (int quan_size)
+{
+    std::vector<double> quan_file(-1,quan_size/2-1);
+    for (unsigned ii =0 ;ii <quan_file.size() ;ii++)
+    {
+        quan_file[ii] = -(quan_size/2-1+ii)-0.2;
+    }
+    return quan_file;
+}
+
+std::vector <double> vari_sepcail_recons (int quan_size)
+{
+    std::vector<double> recons(-1,quan_size);
+    for (int ii =0 ;ii<quan_size ;ii++)
+    {
+        if(ii<quan_size/2)
+        {
+            recons[ii] = ii -quan_size/2;
+        }
+        else
+        {
+            recons[ii] = ii -quan_size/2+1;
+        }        
+    }
+    return recons;
 }

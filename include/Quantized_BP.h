@@ -53,10 +53,15 @@ void main_simulation(const char ind[], const char suffix[],std::string filename)
 void main_simulation(const char ind[],const char suffix[]);
 
 
-//-----main simulation layer decoder-----
-void main_simulation_layered(const char ind[], const char suffix[],std::string filename, int l, int r, int layer_size);
-bool decoder_min_layered(std::vector<double> cwds,int &iteration, std::vector<int> & final_bits, std::vector<int> & initial_bit, int layer_size);
-bool decoder_min_layered(std::vector<double> cwds ,int &iteration, std::vector<int> & final_bits, std::vector<int> & initial_bit, int l, int r, int layer_size);
+//-----main simulation vertical layer decoder-----
+void main_simulation_vertical_layered(const char ind[], const char suffix[],std::string filename, int l, int r, int layer_size);
+bool decoder_min_vertical_layered(std::vector<double> cwds,int &iteration, std::vector<int> & final_bits, std::vector<int> & initial_bit, int layer_size);
+bool decoder_min_vertical_layered(std::vector<double> cwds ,int &iteration, std::vector<int> & final_bits, std::vector<int> & initial_bit, int l, int r, int layer_size);
+
+//-----main simulation Horizontal  layer decoder-----
+void main_simulation_horizontal_layered(const char ind[], const char suffix[],std::string filename, int l, int r, int layer_size);
+bool decoder_min_horizontal_layered(std::vector<double> cwds,int &iteration, std::vector<int> & final_bits, std::vector<int> & initial_bit, int layer_size);
+bool decoder_min_horizontal_layered(std::vector<double> cwds ,int &iteration, std::vector<int> & final_bits, std::vector<int> & initial_bit, int l, int r, int layer_size);
 
 //-----some tools-----
 unsigned threshold_quantization(std::vector<double> & threshold, double value);

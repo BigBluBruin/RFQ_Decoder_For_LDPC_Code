@@ -1267,7 +1267,7 @@ void Quantized_BP::decoder_min_track(std::vector<double> cwds, int &iteration, s
     iteration = iteration + max_iter;
 }
 
-void Quantized_BP::main_simulation_layered(const char ind[], const char suffix[], std::string filename, int l, int r, int layer_size)
+void Quantized_BP::main_simulation_vertical_layered(const char ind[], const char suffix[], std::string filename, int l, int r, int layer_size)
 {
     // random codeword generation, with quantization
     std::random_device rd;
@@ -1323,12 +1323,12 @@ void Quantized_BP::main_simulation_layered(const char ind[], const char suffix[]
             if ( l!=0 || r!=0 )
             {
                 // make internal message finite 
-                result = decoder_min_layered(codewords ,iteration,  final_bits,  initial_bits, l, r, layer_size);
+                result = decoder_min_vertical_layered(codewords ,iteration,  final_bits,  initial_bits, l, r, layer_size);
             }
             else
             {
                 // make internal message full precision
-                result = decoder_min_layered(codewords ,iteration,  final_bits,  initial_bits,layer_size);
+                result = decoder_min_vertical_layered(codewords ,iteration,  final_bits,  initial_bits,layer_size);
             }            
             if (!result)
             {
@@ -1351,7 +1351,7 @@ void Quantized_BP::main_simulation_layered(const char ind[], const char suffix[]
     }
 }
 
-bool Quantized_BP::decoder_min_layered(std::vector<double> cwds ,int &iteration, std::vector<int> & final_bits, std::vector<int> & initial_bit, int l, int r, int layer_size)
+bool Quantized_BP::decoder_min_vertical_layered(std::vector<double> cwds ,int &iteration, std::vector<int> & final_bits, std::vector<int> & initial_bit, int l, int r, int layer_size)
 {
     //randomly generated codeword, with quantization
     //Definition area
@@ -1532,7 +1532,7 @@ bool Quantized_BP::decoder_min_layered(std::vector<double> cwds ,int &iteration,
     return false;
 }
 
-bool Quantized_BP::decoder_min_layered(std::vector<double> cwds, int &iteration, std::vector<int> &final_bits, std::vector<int> &initial_bit, int layer_size)
+bool Quantized_BP::decoder_min_vertical_layered(std::vector<double> cwds, int &iteration, std::vector<int> &final_bits, std::vector<int> &initial_bit, int layer_size)
 {
     //randomly generated codeword, with quantization
     //Definition area
@@ -1652,6 +1652,330 @@ bool Quantized_BP::decoder_min_layered(std::vector<double> cwds, int &iteration,
             }
             final_codewords = vari_node_operation(message_v);
             if (final_codewords > 0)
+            {
+                final_bits[ii] = 0;
+            }
+            else
+            {
+                final_bits[ii] = 1;
+            }
+        }
+        //check sum
+        if (iscwds(final_bits))
+        {
+            iteration = iteration + cur_iter + 1;
+            for (int ii = 0; ii < h_ins.vari_num; ii++)
+            {
+                if (final_bits[ii] != initial_bit[ii])
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+    }
+    iteration = iteration + max_iter;
+    return false;
+}
+
+void Quantized_BP::main_simulation_horizontal_layered(const char ind[], const char suffix[],std::string filename, int l, int r, int layer_size)
+{
+    // random codeword generation, with quantization
+    //-----------basic information output------------
+    std::cout << "Layer Type: Horizontal" << std::endl;
+    std::cout << "Layer Size: " << layer_size << std::endl;
+    std::cout << "Codewords from: " << filename << std::endl;
+    std::cout << "Quantization: l-" << l << " bit, r-" << r << " bit..." << std::endl;
+    //-----------------------------------------------
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::binomial_distribution<> d(1, 0.5);
+    if(strcmp(filename.data(),"all_zeros")!=0)
+    {
+        h_ins.Read_G_Matrix(filename);
+    }
+    int total_num = 0;
+    int error_num = 0;
+    int iteration;
+    double cur_para;
+    bool result;
+    std::vector<double> codewords;
+    std::vector<int> final_bits;
+    std::vector<int> initial_bits;
+    //-----Basic Information Output-----
+    
+    if (r!=0 || l!=0)
+    {
+        quan_two_vec(vari_recons, l, r);
+        quan_two_vec(vari_threshold, l, r);
+        quan_two_vec(check_recons, l, r);
+        quan_two_vec(check_threshold, l, r);
+        quan_one_vec(channel_recons, l, r);
+    }
+
+    for (unsigned ii = 0; ii < parameters.size(); ii++)
+    {
+        iteration = 0;
+        cur_para = pow(10, (-0.1 * parameters[ii])) / (2.0 * h_ins.rate);
+        std::string result_file = "Result_n_" + std::to_string(h_ins.vari_num) + "_k_" + std::to_string(h_ins.check_num) + "_den_" + suffix + "_Para_" + std::to_string(parameters[ii]) + "_ind_" + ind + ".txt";
+        std::ofstream result_bar;
+        do
+        {
+            total_num = total_num + 1;
+            codewords.assign(h_ins.vari_num, 1);
+            final_bits.assign(h_ins.vari_num, -1);
+            initial_bits.assign(h_ins.vari_num, 0);
+            if (strcmp(filename.data(),"all_zeros")!=0)
+            {
+                // if g matrix is loaded, then we do random encoding
+                for (unsigned ii = 0; ii < (h_ins.vari_num - h_ins.check_num); ii++)
+                {
+                    initial_bits[ii] = d(gen);
+                }
+                generate_whole_bits(initial_bits);
+            }
+            generate_codeword(initial_bits, codewords);
+            noise_generator(codewords, cur_para);
+            if ( l!=0 || r!=0 )
+            {
+                // make internal message finite 
+                result = decoder_min_horizontal_layered(codewords ,iteration,  final_bits,  initial_bits, l, r, layer_size);
+            }
+            else
+            {
+                // make internal message full precision
+                result = decoder_min_horizontal_layered(codewords ,iteration,  final_bits,  initial_bits,layer_size);
+            }            
+            if (!result)
+            {
+                /* fail */
+                error_num = error_num + 1;
+                std::cout << "Para: " << parameters[ii] << " error: " << error_num << "fer: " << (double)error_num / (double)total_num << std::endl;
+                //you can also output failed codewords here....
+            }
+            if (total_num % 100 == 1)
+            {
+                result_bar.open(result_file);
+                result_bar << parameters[ii] << "  " << total_num << "  " << error_num << "  " << (double)iteration / (double)total_num << std::endl;
+                result_bar.close();
+            }
+
+        } while (error_num < target_error);
+        result_bar.open(result_file);
+        result_bar << parameters[ii] << "  " << total_num << "  " << error_num << "  " << (double)iteration / (double)total_num << std::endl;
+        result_bar.close();
+    }
+}
+
+bool Quantized_BP::decoder_min_horizontal_layered(std::vector<double> cwds, int &iteration, std::vector<int> &final_bits, std::vector<int> &initial_bit, int layer_size)
+{
+    //randomly generated codeword, with quantization
+    //Definition area
+    unsigned quan_size = 16;
+    std::vector<double> msg_c2v(h_ins.edge_num, -1);
+    std::vector<double> msg_v2c, updated_c2v;
+    std::vector<double> rx(h_ins.vari_num, -1);
+    std::vector<double> rec_v = vari_sepcail_recons(quan_size); //  handmade reconstrcution
+    std::vector<double> qua_c = check_sepcail_quan(quan_size);  //   handmade quantization
+    double Max_val = cq_ins.Max_value;
+    double Min_val = cq_ins.Min_value;
+    int Partition = cq_ins.Partition_num;
+    int starting_check, end_check;
+    double quan_max = Max_val + (double)Max_val / Partition;
+    double quan_min = Min_val - (double)Max_val / Partition;
+    double interval = (double)(quan_max - quan_min) / Partition;
+    double temp1;
+    int temp2_int;
+    int dc;
+    int cur_check_node,cur_vari;
+    int total_layer_num;
+    if (h_ins.vari_num % layer_size != 0)
+    {
+        std::cout << "Info: variable number (" << h_ins.vari_num << ") is invisible by layer_size (" << layer_size << "). please check again." << std::endl;
+        return false;
+    }
+    else
+    {
+        total_layer_num = h_ins.check_num / layer_size;
+    }
+
+    // Initialize Q value 
+    for (int ii = 0; ii < h_ins.vari_num; ii++)
+    {
+        rx[ii] = channel_recons[cq_ins.quantizer[Quantize(cwds[ii], quan_min, quan_max, interval, cq_ins.Partition_num)]];
+    }
+
+    for (int cur_iter = 0; cur_iter < max_iter; cur_iter++)
+    {
+        // go through each layer
+        for (int cur_layer = 0; cur_layer < total_layer_num; cur_layer++)
+        {
+            starting_check = cur_layer * layer_size;
+            end_check = (cur_layer + 1) * layer_size;
+            for (cur_check_node = starting_check; cur_check_node <= end_check; cur_check_node++)
+            {
+                dc = h_ins.check_degreetable[cur_check_node];
+                msg_v2c.assign(dc, -1);
+                for (int ii = 0; ii < dc; ii++)
+                {
+                    //update rx
+                    cur_vari = h_ins.edge_relation[0][h_ins.edge_c[cur_check_node][ii]];
+                    rx[cur_vari] -= msg_c2v[h_ins.edge_c[cur_check_node][ii]];
+                    // get c->v msg
+                    temp1 = rx[cur_vari];
+                    // quantization
+                    if (cur_iter == 0)
+                    {
+                        temp2_int = cq_ins.quantizer[Quantize(cwds[h_ins.edge_relation[0][h_ins.edge_c[cur_check_node][ii]]], quan_min, quan_max, interval, cq_ins.Partition_num)];
+                    }
+                    else
+                    {
+                        temp2_int = (int)threshold_quantization(vari_threshold[cur_iter - 1], temp1);
+                    }
+                    //reconstruction
+                    msg_v2c[ii] = rec_v[temp2_int];
+                }
+                
+                //get updated c2v msgs
+                updated_c2v = check_node_operation_fast_minsum(msg_v2c);
+
+                for (int ii = 0; ii < dc; ii++)
+                {
+                    cur_vari = h_ins.edge_relation[0][h_ins.edge_c[cur_check_node][ii]];
+                    // quantiation
+                    temp2_int = (int)threshold_quantization(qua_c, updated_c2v[ii]);
+                    // reconstruction & update c2v msges
+                    msg_c2v[h_ins.edge_c[cur_check_node][ii]] = check_recons[cur_iter][temp2_int];
+                    // update posterior
+                    rx[cur_vari] += msg_c2v[h_ins.edge_c[cur_check_node][ii]];
+                }
+            }
+        }
+        //final decision
+        for (int ii = 0; ii < h_ins.vari_num; ii++)
+        {
+            if (rx[ii] > 0)
+            {
+                final_bits[ii] = 0;
+            }
+            else
+            {
+                final_bits[ii] = 1;
+            }
+        }
+        //check sum
+        if (iscwds(final_bits))
+        {
+            iteration = iteration + cur_iter + 1;
+            for (int ii = 0; ii < h_ins.vari_num; ii++)
+            {
+                if (final_bits[ii] != initial_bit[ii])
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+    }
+    iteration = iteration + max_iter;
+    return false;
+}
+
+bool Quantized_BP::decoder_min_horizontal_layered(std::vector<double> cwds ,int &iteration, std::vector<int> & final_bits, std::vector<int> & initial_bit, int l, int r, int layer_size)
+{
+    //randomly generated codeword, with quantization
+    //Definition area
+    double rpow, lpow, minpow, maxpow;
+    rpow = pow(2, r);
+    lpow = pow(2, (l - 1));
+    minpow = (-1) * lpow;
+    maxpow = lpow - (double)1.0 / (double)rpow;
+    unsigned quan_size = 16;
+    std::vector<double> msg_c2v(h_ins.edge_num, -1);
+    std::vector<double> msg_v2c, updated_c2v;
+    std::vector<double> rx(h_ins.vari_num, -1);
+    std::vector<double> rec_v = vari_sepcail_recons(quan_size); //  handmade reconstrcution
+    std::vector<double> qua_c = check_sepcail_quan(quan_size);  //   handmade quantization
+    double Max_val = cq_ins.Max_value;
+    double Min_val = cq_ins.Min_value;
+    int Partition = cq_ins.Partition_num;
+    int starting_check, end_check;
+    double quan_max = Max_val + (double)Max_val / Partition;
+    double quan_min = Min_val - (double)Max_val / Partition;
+    double interval = (double)(quan_max - quan_min) / Partition;
+    double temp1;
+    int temp2_int;
+    int dc;
+    int cur_check_node,cur_vari;
+    int total_layer_num;
+    if (h_ins.vari_num % layer_size != 0)
+    {
+        std::cout << "Info: variable number (" << h_ins.vari_num << ") is invisible by layer_size (" << layer_size << "). please check again." << std::endl;
+        return false;
+    }
+    else
+    {
+        total_layer_num = h_ins.check_num / layer_size;
+    }
+
+    for (int ii = 0; ii < h_ins.vari_num; ii++)
+    {
+        rx[ii] = channel_recons[cq_ins.quantizer[Quantize(cwds[ii], quan_min, quan_max, interval, cq_ins.Partition_num)]];
+    }
+
+    for (int cur_iter = 0; cur_iter < max_iter; cur_iter++)
+    {
+        // go through each layer
+        for (int cur_layer = 0; cur_layer < total_layer_num; cur_layer++)
+        {
+            starting_check = cur_layer * layer_size;
+            end_check = (cur_layer + 1) * layer_size;
+            for (cur_check_node = starting_check; cur_check_node <= end_check; cur_check_node++)
+            {
+                dc = h_ins.check_degreetable[cur_check_node];
+                msg_v2c.assign(dc, -1);
+                for (int ii = 0; ii < dc; ii++)
+                {
+                    //update rx
+                    cur_vari = h_ins.edge_relation[0][h_ins.edge_c[cur_check_node][ii]];
+                    rx[cur_vari] -= msg_c2v[h_ins.edge_c[cur_check_node][ii]];
+                    // get c->v msg
+                    temp1 = rx[cur_vari];
+                    // quantization
+                    if (cur_iter == 0)
+                    {
+                        temp2_int = cq_ins.quantizer[Quantize(cwds[h_ins.edge_relation[0][h_ins.edge_c[cur_check_node][ii]]], quan_min, quan_max, interval, cq_ins.Partition_num)];
+                    }
+                    else
+                    {
+                        temp2_int = (int)threshold_quantization(vari_threshold[cur_iter - 1], temp1);
+                    }
+                    //reconstruction
+                    msg_v2c[ii] = rec_v[temp2_int];
+                }
+                //gte updated c2v msgs
+                updated_c2v = check_node_operation_fast_minsum(msg_v2c);
+
+                for (int ii = 0; ii < dc; ii++)
+                {
+                    cur_vari = h_ins.edge_relation[0][h_ins.edge_c[cur_check_node][ii]];
+                    // quantiation
+                    temp2_int = (int)threshold_quantization(qua_c, updated_c2v[ii]);
+                    // reconstruction & update c2v msges
+                    msg_c2v[h_ins.edge_c[cur_check_node][ii]] = check_recons[cur_iter][temp2_int];
+                    // update posterior
+                    rx[cur_vari] += msg_c2v[h_ins.edge_c[cur_check_node][ii]];
+                    if (rx[cur_vari]>maxpow)
+                        rx[cur_vari] = maxpow;
+                    if (rx[cur_vari]<minpow)
+                        rx[cur_vari] = minpow;
+                }
+            }
+        }
+        //final decision
+        for (int ii = 0; ii < h_ins.vari_num; ii++)
+        {
+            if (rx[ii] > 0)
             {
                 final_bits[ii] = 0;
             }

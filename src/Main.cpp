@@ -30,9 +30,10 @@ int main(int argc,char* argv[])
     std::vector<double> parameters;
     std::string suffix;
     std::string parity_file;
-    if (num_of_in != 9)
+    std::string layer_type;
+    if (num_of_in != 10)
     {
-        std::cout<<"Info: Number of Input is not equal to 7, please check again."<<std::endl;
+        std::cout<<"Info: Number of Input is not equal to 10, please check again."<<std::endl;
 
     }
     for (i = 0; i < num_of_in; ++i)
@@ -72,6 +73,10 @@ int main(int argc,char* argv[])
         else if (strcmp(argv[2 * i + 1], "-r") == 0)
         {
             r = std::stoi(argv[2 * i + 2]) ;
+        }
+        else if (strcmp(argv[2 * i + 1], "-t") == 0)
+        {
+            layer_type = argv[2 * i + 2] ;
         }
         else
         {
@@ -120,53 +125,59 @@ int main(int argc,char* argv[])
     }
     else
     {
-        this_quanbp.main_simulation_layered(ind.data(),suffix.data(),g_filename.data(),l,r,layer_size);
+        if (strcmp(layer_type.data(),"v")==0||strcmp(layer_type.data(),"V")==0)
+        {
+            this_quanbp.main_simulation_vertical_layered(ind.data(),suffix.data(),g_filename.data(),l,r,layer_size);
+        }
+        else
+        {
+            this_quanbp.main_simulation_horizontal_layered(ind.data(),suffix.data(),g_filename.data(),l,r,layer_size);
+        }
+        
     }
-    
-
-    //-----This part is used for tracking trapping set using our decoding scheme---------------------------
-    // int total_num=35;
-    // int iteration =0;
-    // for (int cur_ind = 0; cur_ind<total_num; cur_ind++)
-    // {
-    //     //cur_ind=11;
-    //     std::string cur_initial_bit_filename="initial_bits_"+std::to_string(cur_ind)+".txt";
-    //     std::string cur_cwd_filename = "wrong_cwd_"+std::to_string(cur_ind)+".txt";
-    //     std::ifstream filehandle;
-    //     std::vector<int> inital_bits(this_quanbp.h_ins.vari_num,0);
-    //     std::vector<int> final_bits(this_quanbp.h_ins.vari_num,0);
-    //     std::vector<double> cwds(this_quanbp.h_ins.vari_num,0);
-    //     filehandle.open(cur_initial_bit_filename);
-    //     if(filehandle.is_open())
-    //     {
-    //         for(int ii=0; ii<this_quanbp.h_ins.vari_num;ii++)
-    //         {
-    //             filehandle>>inital_bits[ii];
-    //         }
-    //     }
-    //     else
-    //     {
-    //         std::cout<<"Info: Could not open INITIAL BIT file: "<<cur_initial_bit_filename<<". please check your input"<<std::endl;
-    //         return 0;
-    //     }
-    //     filehandle.close();
-    //     filehandle.open(cur_cwd_filename);
-    //     if (filehandle.is_open())
-    //     {
-    //         for (int ii = 0; ii < this_quanbp.h_ins.vari_num; ii++)
-    //         {
-    //             filehandle >> cwds[ii];
-    //         }
-    //     }
-    //     else
-    //     {
-    //         std::cout << "Info: Could not open WRONG CWDs file: " << cur_cwd_filename << ". please check your input" << std::endl;
-    //         return 0;
-    //     }
-
-    //     //this_quanbp.decoder_min_track(cwds,iteration,final_bits,inital_bits,cur_ind);
-    //     //this_quanbp.decoder_min_track(cwds,iteration,final_bits,inital_bits,5,5,cur_ind);
-    //     this_quanbp.decoder_min_track(cwds,iteration,final_bits,inital_bits,5,3,cur_ind);
-    // }
-
 }
+
+//-------------TRASH----------------------------
+//-----This part is used for tracking trapping set using our decoding scheme---------------------------
+// int total_num=35;
+// int iteration =0;
+// for (int cur_ind = 0; cur_ind<total_num; cur_ind++)
+// {
+//     //cur_ind=11;
+//     std::string cur_initial_bit_filename="initial_bits_"+std::to_string(cur_ind)+".txt";
+//     std::string cur_cwd_filename = "wrong_cwd_"+std::to_string(cur_ind)+".txt";
+//     std::ifstream filehandle;
+//     std::vector<int> inital_bits(this_quanbp.h_ins.vari_num,0);
+//     std::vector<int> final_bits(this_quanbp.h_ins.vari_num,0);
+//     std::vector<double> cwds(this_quanbp.h_ins.vari_num,0);
+//     filehandle.open(cur_initial_bit_filename);
+//     if(filehandle.is_open())
+//     {
+//         for(int ii=0; ii<this_quanbp.h_ins.vari_num;ii++)
+//         {
+//             filehandle>>inital_bits[ii];
+//         }
+//     }
+//     else
+//     {
+//         std::cout<<"Info: Could not open INITIAL BIT file: "<<cur_initial_bit_filename<<". please check your input"<<std::endl;
+//         return 0;
+//     }
+//     filehandle.close();
+//     filehandle.open(cur_cwd_filename);
+//     if (filehandle.is_open())
+//     {
+//         for (int ii = 0; ii < this_quanbp.h_ins.vari_num; ii++)
+//         {
+//             filehandle >> cwds[ii];
+//         }
+//     }
+//     else
+//     {
+//         std::cout << "Info: Could not open WRONG CWDs file: " << cur_cwd_filename << ". please check your input" << std::endl;
+//         return 0;
+//     }
+//     //this_quanbp.decoder_min_track(cwds,iteration,final_bits,inital_bits,cur_ind);
+//     //this_quanbp.decoder_min_track(cwds,iteration,final_bits,inital_bits,5,5,cur_ind);
+//     this_quanbp.decoder_min_track(cwds,iteration,final_bits,inital_bits,5,3,cur_ind);
+// }
