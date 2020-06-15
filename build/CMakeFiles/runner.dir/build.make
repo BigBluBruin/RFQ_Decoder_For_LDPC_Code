@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /mnt/e/Gitrepo/RFQ_Decoder_For_LDPC_Code
+CMAKE_SOURCE_DIR = /home/nick/Documents/Gitpro/RFQ_Decoder_For_LDPC_Code
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /mnt/e/Gitrepo/RFQ_Decoder_For_LDPC_Code/build
+CMAKE_BINARY_DIR = /home/nick/Documents/Gitpro/RFQ_Decoder_For_LDPC_Code/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/runner.dir/depend.make
@@ -59,16 +59,16 @@ include CMakeFiles/runner.dir/flags.make
 
 CMakeFiles/runner.dir/src/Main.cpp.o: CMakeFiles/runner.dir/flags.make
 CMakeFiles/runner.dir/src/Main.cpp.o: ../src/Main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/e/Gitrepo/RFQ_Decoder_For_LDPC_Code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/runner.dir/src/Main.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/runner.dir/src/Main.cpp.o -c /mnt/e/Gitrepo/RFQ_Decoder_For_LDPC_Code/src/Main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nick/Documents/Gitpro/RFQ_Decoder_For_LDPC_Code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/runner.dir/src/Main.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/runner.dir/src/Main.cpp.o -c /home/nick/Documents/Gitpro/RFQ_Decoder_For_LDPC_Code/src/Main.cpp
 
 CMakeFiles/runner.dir/src/Main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/runner.dir/src/Main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/e/Gitrepo/RFQ_Decoder_For_LDPC_Code/src/Main.cpp > CMakeFiles/runner.dir/src/Main.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nick/Documents/Gitpro/RFQ_Decoder_For_LDPC_Code/src/Main.cpp > CMakeFiles/runner.dir/src/Main.cpp.i
 
 CMakeFiles/runner.dir/src/Main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/runner.dir/src/Main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/e/Gitrepo/RFQ_Decoder_For_LDPC_Code/src/Main.cpp -o CMakeFiles/runner.dir/src/Main.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nick/Documents/Gitpro/RFQ_Decoder_For_LDPC_Code/src/Main.cpp -o CMakeFiles/runner.dir/src/Main.cpp.s
 
 CMakeFiles/runner.dir/src/Main.cpp.o.requires:
 
@@ -83,16 +83,16 @@ CMakeFiles/runner.dir/src/Main.cpp.o.provides.build: CMakeFiles/runner.dir/src/M
 
 CMakeFiles/runner.dir/src/Parity_Check_Matrix_Info.cpp.o: CMakeFiles/runner.dir/flags.make
 CMakeFiles/runner.dir/src/Parity_Check_Matrix_Info.cpp.o: ../src/Parity_Check_Matrix_Info.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/e/Gitrepo/RFQ_Decoder_For_LDPC_Code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/runner.dir/src/Parity_Check_Matrix_Info.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/runner.dir/src/Parity_Check_Matrix_Info.cpp.o -c /mnt/e/Gitrepo/RFQ_Decoder_For_LDPC_Code/src/Parity_Check_Matrix_Info.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nick/Documents/Gitpro/RFQ_Decoder_For_LDPC_Code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/runner.dir/src/Parity_Check_Matrix_Info.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/runner.dir/src/Parity_Check_Matrix_Info.cpp.o -c /home/nick/Documents/Gitpro/RFQ_Decoder_For_LDPC_Code/src/Parity_Check_Matrix_Info.cpp
 
 CMakeFiles/runner.dir/src/Parity_Check_Matrix_Info.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/runner.dir/src/Parity_Check_Matrix_Info.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/e/Gitrepo/RFQ_Decoder_For_LDPC_Code/src/Parity_Check_Matrix_Info.cpp > CMakeFiles/runner.dir/src/Parity_Check_Matrix_Info.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nick/Documents/Gitpro/RFQ_Decoder_For_LDPC_Code/src/Parity_Check_Matrix_Info.cpp > CMakeFiles/runner.dir/src/Parity_Check_Matrix_Info.cpp.i
 
 CMakeFiles/runner.dir/src/Parity_Check_Matrix_Info.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/runner.dir/src/Parity_Check_Matrix_Info.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/e/Gitrepo/RFQ_Decoder_For_LDPC_Code/src/Parity_Check_Matrix_Info.cpp -o CMakeFiles/runner.dir/src/Parity_Check_Matrix_Info.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nick/Documents/Gitpro/RFQ_Decoder_For_LDPC_Code/src/Parity_Check_Matrix_Info.cpp -o CMakeFiles/runner.dir/src/Parity_Check_Matrix_Info.cpp.s
 
 CMakeFiles/runner.dir/src/Parity_Check_Matrix_Info.cpp.o.requires:
 
@@ -107,16 +107,16 @@ CMakeFiles/runner.dir/src/Parity_Check_Matrix_Info.cpp.o.provides.build: CMakeFi
 
 CMakeFiles/runner.dir/src/Quantized_BP.cpp.o: CMakeFiles/runner.dir/flags.make
 CMakeFiles/runner.dir/src/Quantized_BP.cpp.o: ../src/Quantized_BP.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/e/Gitrepo/RFQ_Decoder_For_LDPC_Code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/runner.dir/src/Quantized_BP.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/runner.dir/src/Quantized_BP.cpp.o -c /mnt/e/Gitrepo/RFQ_Decoder_For_LDPC_Code/src/Quantized_BP.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nick/Documents/Gitpro/RFQ_Decoder_For_LDPC_Code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/runner.dir/src/Quantized_BP.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/runner.dir/src/Quantized_BP.cpp.o -c /home/nick/Documents/Gitpro/RFQ_Decoder_For_LDPC_Code/src/Quantized_BP.cpp
 
 CMakeFiles/runner.dir/src/Quantized_BP.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/runner.dir/src/Quantized_BP.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/e/Gitrepo/RFQ_Decoder_For_LDPC_Code/src/Quantized_BP.cpp > CMakeFiles/runner.dir/src/Quantized_BP.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nick/Documents/Gitpro/RFQ_Decoder_For_LDPC_Code/src/Quantized_BP.cpp > CMakeFiles/runner.dir/src/Quantized_BP.cpp.i
 
 CMakeFiles/runner.dir/src/Quantized_BP.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/runner.dir/src/Quantized_BP.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/e/Gitrepo/RFQ_Decoder_For_LDPC_Code/src/Quantized_BP.cpp -o CMakeFiles/runner.dir/src/Quantized_BP.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nick/Documents/Gitpro/RFQ_Decoder_For_LDPC_Code/src/Quantized_BP.cpp -o CMakeFiles/runner.dir/src/Quantized_BP.cpp.s
 
 CMakeFiles/runner.dir/src/Quantized_BP.cpp.o.requires:
 
@@ -131,16 +131,16 @@ CMakeFiles/runner.dir/src/Quantized_BP.cpp.o.provides.build: CMakeFiles/runner.d
 
 CMakeFiles/runner.dir/src/allocate_pointer.cpp.o: CMakeFiles/runner.dir/flags.make
 CMakeFiles/runner.dir/src/allocate_pointer.cpp.o: ../src/allocate_pointer.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/e/Gitrepo/RFQ_Decoder_For_LDPC_Code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/runner.dir/src/allocate_pointer.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/runner.dir/src/allocate_pointer.cpp.o -c /mnt/e/Gitrepo/RFQ_Decoder_For_LDPC_Code/src/allocate_pointer.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nick/Documents/Gitpro/RFQ_Decoder_For_LDPC_Code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/runner.dir/src/allocate_pointer.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/runner.dir/src/allocate_pointer.cpp.o -c /home/nick/Documents/Gitpro/RFQ_Decoder_For_LDPC_Code/src/allocate_pointer.cpp
 
 CMakeFiles/runner.dir/src/allocate_pointer.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/runner.dir/src/allocate_pointer.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/e/Gitrepo/RFQ_Decoder_For_LDPC_Code/src/allocate_pointer.cpp > CMakeFiles/runner.dir/src/allocate_pointer.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nick/Documents/Gitpro/RFQ_Decoder_For_LDPC_Code/src/allocate_pointer.cpp > CMakeFiles/runner.dir/src/allocate_pointer.cpp.i
 
 CMakeFiles/runner.dir/src/allocate_pointer.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/runner.dir/src/allocate_pointer.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/e/Gitrepo/RFQ_Decoder_For_LDPC_Code/src/allocate_pointer.cpp -o CMakeFiles/runner.dir/src/allocate_pointer.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nick/Documents/Gitpro/RFQ_Decoder_For_LDPC_Code/src/allocate_pointer.cpp -o CMakeFiles/runner.dir/src/allocate_pointer.cpp.s
 
 CMakeFiles/runner.dir/src/allocate_pointer.cpp.o.requires:
 
@@ -155,16 +155,16 @@ CMakeFiles/runner.dir/src/allocate_pointer.cpp.o.provides.build: CMakeFiles/runn
 
 CMakeFiles/runner.dir/src/channel_quantizer.cpp.o: CMakeFiles/runner.dir/flags.make
 CMakeFiles/runner.dir/src/channel_quantizer.cpp.o: ../src/channel_quantizer.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/e/Gitrepo/RFQ_Decoder_For_LDPC_Code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/runner.dir/src/channel_quantizer.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/runner.dir/src/channel_quantizer.cpp.o -c /mnt/e/Gitrepo/RFQ_Decoder_For_LDPC_Code/src/channel_quantizer.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nick/Documents/Gitpro/RFQ_Decoder_For_LDPC_Code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/runner.dir/src/channel_quantizer.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/runner.dir/src/channel_quantizer.cpp.o -c /home/nick/Documents/Gitpro/RFQ_Decoder_For_LDPC_Code/src/channel_quantizer.cpp
 
 CMakeFiles/runner.dir/src/channel_quantizer.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/runner.dir/src/channel_quantizer.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/e/Gitrepo/RFQ_Decoder_For_LDPC_Code/src/channel_quantizer.cpp > CMakeFiles/runner.dir/src/channel_quantizer.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nick/Documents/Gitpro/RFQ_Decoder_For_LDPC_Code/src/channel_quantizer.cpp > CMakeFiles/runner.dir/src/channel_quantizer.cpp.i
 
 CMakeFiles/runner.dir/src/channel_quantizer.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/runner.dir/src/channel_quantizer.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/e/Gitrepo/RFQ_Decoder_For_LDPC_Code/src/channel_quantizer.cpp -o CMakeFiles/runner.dir/src/channel_quantizer.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nick/Documents/Gitpro/RFQ_Decoder_For_LDPC_Code/src/channel_quantizer.cpp -o CMakeFiles/runner.dir/src/channel_quantizer.cpp.s
 
 CMakeFiles/runner.dir/src/channel_quantizer.cpp.o.requires:
 
@@ -179,16 +179,16 @@ CMakeFiles/runner.dir/src/channel_quantizer.cpp.o.provides.build: CMakeFiles/run
 
 CMakeFiles/runner.dir/src/full_BP.cpp.o: CMakeFiles/runner.dir/flags.make
 CMakeFiles/runner.dir/src/full_BP.cpp.o: ../src/full_BP.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/e/Gitrepo/RFQ_Decoder_For_LDPC_Code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/runner.dir/src/full_BP.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/runner.dir/src/full_BP.cpp.o -c /mnt/e/Gitrepo/RFQ_Decoder_For_LDPC_Code/src/full_BP.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nick/Documents/Gitpro/RFQ_Decoder_For_LDPC_Code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/runner.dir/src/full_BP.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/runner.dir/src/full_BP.cpp.o -c /home/nick/Documents/Gitpro/RFQ_Decoder_For_LDPC_Code/src/full_BP.cpp
 
 CMakeFiles/runner.dir/src/full_BP.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/runner.dir/src/full_BP.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/e/Gitrepo/RFQ_Decoder_For_LDPC_Code/src/full_BP.cpp > CMakeFiles/runner.dir/src/full_BP.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nick/Documents/Gitpro/RFQ_Decoder_For_LDPC_Code/src/full_BP.cpp > CMakeFiles/runner.dir/src/full_BP.cpp.i
 
 CMakeFiles/runner.dir/src/full_BP.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/runner.dir/src/full_BP.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/e/Gitrepo/RFQ_Decoder_For_LDPC_Code/src/full_BP.cpp -o CMakeFiles/runner.dir/src/full_BP.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nick/Documents/Gitpro/RFQ_Decoder_For_LDPC_Code/src/full_BP.cpp -o CMakeFiles/runner.dir/src/full_BP.cpp.s
 
 CMakeFiles/runner.dir/src/full_BP.cpp.o.requires:
 
@@ -203,16 +203,16 @@ CMakeFiles/runner.dir/src/full_BP.cpp.o.provides.build: CMakeFiles/runner.dir/sr
 
 CMakeFiles/runner.dir/src/uniform_quantization.cpp.o: CMakeFiles/runner.dir/flags.make
 CMakeFiles/runner.dir/src/uniform_quantization.cpp.o: ../src/uniform_quantization.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/e/Gitrepo/RFQ_Decoder_For_LDPC_Code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/runner.dir/src/uniform_quantization.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/runner.dir/src/uniform_quantization.cpp.o -c /mnt/e/Gitrepo/RFQ_Decoder_For_LDPC_Code/src/uniform_quantization.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nick/Documents/Gitpro/RFQ_Decoder_For_LDPC_Code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/runner.dir/src/uniform_quantization.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/runner.dir/src/uniform_quantization.cpp.o -c /home/nick/Documents/Gitpro/RFQ_Decoder_For_LDPC_Code/src/uniform_quantization.cpp
 
 CMakeFiles/runner.dir/src/uniform_quantization.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/runner.dir/src/uniform_quantization.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/e/Gitrepo/RFQ_Decoder_For_LDPC_Code/src/uniform_quantization.cpp > CMakeFiles/runner.dir/src/uniform_quantization.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nick/Documents/Gitpro/RFQ_Decoder_For_LDPC_Code/src/uniform_quantization.cpp > CMakeFiles/runner.dir/src/uniform_quantization.cpp.i
 
 CMakeFiles/runner.dir/src/uniform_quantization.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/runner.dir/src/uniform_quantization.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/e/Gitrepo/RFQ_Decoder_For_LDPC_Code/src/uniform_quantization.cpp -o CMakeFiles/runner.dir/src/uniform_quantization.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nick/Documents/Gitpro/RFQ_Decoder_For_LDPC_Code/src/uniform_quantization.cpp -o CMakeFiles/runner.dir/src/uniform_quantization.cpp.s
 
 CMakeFiles/runner.dir/src/uniform_quantization.cpp.o.requires:
 
@@ -247,7 +247,7 @@ runner: CMakeFiles/runner.dir/src/full_BP.cpp.o
 runner: CMakeFiles/runner.dir/src/uniform_quantization.cpp.o
 runner: CMakeFiles/runner.dir/build.make
 runner: CMakeFiles/runner.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/mnt/e/Gitrepo/RFQ_Decoder_For_LDPC_Code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable runner"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/nick/Documents/Gitpro/RFQ_Decoder_For_LDPC_Code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable runner"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/runner.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -270,6 +270,6 @@ CMakeFiles/runner.dir/clean:
 .PHONY : CMakeFiles/runner.dir/clean
 
 CMakeFiles/runner.dir/depend:
-	cd /mnt/e/Gitrepo/RFQ_Decoder_For_LDPC_Code/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /mnt/e/Gitrepo/RFQ_Decoder_For_LDPC_Code /mnt/e/Gitrepo/RFQ_Decoder_For_LDPC_Code /mnt/e/Gitrepo/RFQ_Decoder_For_LDPC_Code/build /mnt/e/Gitrepo/RFQ_Decoder_For_LDPC_Code/build /mnt/e/Gitrepo/RFQ_Decoder_For_LDPC_Code/build/CMakeFiles/runner.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/nick/Documents/Gitpro/RFQ_Decoder_For_LDPC_Code/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/nick/Documents/Gitpro/RFQ_Decoder_For_LDPC_Code /home/nick/Documents/Gitpro/RFQ_Decoder_For_LDPC_Code /home/nick/Documents/Gitpro/RFQ_Decoder_For_LDPC_Code/build /home/nick/Documents/Gitpro/RFQ_Decoder_For_LDPC_Code/build /home/nick/Documents/Gitpro/RFQ_Decoder_For_LDPC_Code/build/CMakeFiles/runner.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/runner.dir/depend
 

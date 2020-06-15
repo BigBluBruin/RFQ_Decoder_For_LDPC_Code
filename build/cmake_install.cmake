@@ -1,4 +1,4 @@
-# Install script for directory: /mnt/e/Gitrepo/RFQ_Decoder_For_LDPC_Code
+# Install script for directory: /home/nick/Documents/Gitpro/RFQ_Decoder_For_LDPC_Code
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/mnt/e/Gitrepo/RFQ_Decoder_For_LDPC_Code/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/nick/Documents/Gitpro/RFQ_Decoder_For_LDPC_Code/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

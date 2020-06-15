@@ -17,7 +17,8 @@ int main(int argc,char* argv[])
     //  -layersize  number of variable nodes in each group------- set "0" means flooding schedule
     //  -l          the number of bits allocated to integer part 
     //  -r          the number of bits allocated to fraction part
-    // Example: ./runner -Hfile 80211_irr_648_1296.txt -Gfile 80211_G.txt  -suf 092 -ebno 1.40 -targeerr 10 -ind 0 -layersize 54 -l 5  -r 5
+    //  -t          type: v-vertical h-horizontal, it only works when layered size is larger than 0
+    // Example: ./runner -Hfile 80211_irr_648_1296.txt -Gfile 80211_G.txt  -suf 092 -ebno 1.40 -tarerr 10 -ind 0 -layersize 54 -l 5  -r 5 -t H
     //----------------------------------------------------------------------------------------------------------------------------------------- 
 
 
@@ -129,10 +130,16 @@ int main(int argc,char* argv[])
         {
             this_quanbp.main_simulation_vertical_layered(ind.data(),suffix.data(),g_filename.data(),l,r,layer_size);
         }
-        else
+        else if (strcmp(layer_type.data(),"h")==0||strcmp(layer_type.data(),"H")==0)
         {
             this_quanbp.main_simulation_horizontal_layered(ind.data(),suffix.data(),g_filename.data(),l,r,layer_size);
         }
+        else
+        {
+            std::cout<<"Info: there is no type: ||"<<layer_type<<"||, please check again ..."<<std::endl;
+            return 0;
+        }
+        
         
     }
 }

@@ -74,33 +74,33 @@ iostream
 iostream
 -
 
-/mnt/e/Gitrepo/RFQ_Decoder_For_LDPC_Code/src/Main.cpp
+/home/nick/Documents/Gitpro/RFQ_Decoder_For_LDPC_Code/src/Main.cpp
 Quantized_BP.h
-/mnt/e/Gitrepo/RFQ_Decoder_For_LDPC_Code/src/Quantized_BP.h
+/home/nick/Documents/Gitpro/RFQ_Decoder_For_LDPC_Code/src/Quantized_BP.h
 string.h
-/mnt/e/Gitrepo/RFQ_Decoder_For_LDPC_Code/src/string.h
+/home/nick/Documents/Gitpro/RFQ_Decoder_For_LDPC_Code/src/string.h
 
-/mnt/e/Gitrepo/RFQ_Decoder_For_LDPC_Code/src/Parity_Check_Matrix_Info.cpp
+/home/nick/Documents/Gitpro/RFQ_Decoder_For_LDPC_Code/src/Parity_Check_Matrix_Info.cpp
 Parity_Check_Matrix_Info.h
-/mnt/e/Gitrepo/RFQ_Decoder_For_LDPC_Code/src/Parity_Check_Matrix_Info.h
+/home/nick/Documents/Gitpro/RFQ_Decoder_For_LDPC_Code/src/Parity_Check_Matrix_Info.h
 
-/mnt/e/Gitrepo/RFQ_Decoder_For_LDPC_Code/src/Quantized_BP.cpp
+/home/nick/Documents/Gitpro/RFQ_Decoder_For_LDPC_Code/src/Quantized_BP.cpp
 Quantized_BP.h
-/mnt/e/Gitrepo/RFQ_Decoder_For_LDPC_Code/src/Quantized_BP.h
+/home/nick/Documents/Gitpro/RFQ_Decoder_For_LDPC_Code/src/Quantized_BP.h
 
-/mnt/e/Gitrepo/RFQ_Decoder_For_LDPC_Code/src/allocate_pointer.cpp
+/home/nick/Documents/Gitpro/RFQ_Decoder_For_LDPC_Code/src/allocate_pointer.cpp
 allocate_pointer.h
-/mnt/e/Gitrepo/RFQ_Decoder_For_LDPC_Code/src/allocate_pointer.h
+/home/nick/Documents/Gitpro/RFQ_Decoder_For_LDPC_Code/src/allocate_pointer.h
 
-/mnt/e/Gitrepo/RFQ_Decoder_For_LDPC_Code/src/channel_quantizer.cpp
+/home/nick/Documents/Gitpro/RFQ_Decoder_For_LDPC_Code/src/channel_quantizer.cpp
 channel_quantizer.h
-/mnt/e/Gitrepo/RFQ_Decoder_For_LDPC_Code/src/channel_quantizer.h
+/home/nick/Documents/Gitpro/RFQ_Decoder_For_LDPC_Code/src/channel_quantizer.h
 
-/mnt/e/Gitrepo/RFQ_Decoder_For_LDPC_Code/src/full_BP.cpp
+/home/nick/Documents/Gitpro/RFQ_Decoder_For_LDPC_Code/src/full_BP.cpp
 full_BP.h
-/mnt/e/Gitrepo/RFQ_Decoder_For_LDPC_Code/src/full_BP.h
+/home/nick/Documents/Gitpro/RFQ_Decoder_For_LDPC_Code/src/full_BP.h
 
-/mnt/e/Gitrepo/RFQ_Decoder_For_LDPC_Code/src/uniform_quantization.cpp
+/home/nick/Documents/Gitpro/RFQ_Decoder_For_LDPC_Code/src/uniform_quantization.cpp
 uniform_quantization.h
-/mnt/e/Gitrepo/RFQ_Decoder_For_LDPC_Code/src/uniform_quantization.h
+/home/nick/Documents/Gitpro/RFQ_Decoder_For_LDPC_Code/src/uniform_quantization.h
 

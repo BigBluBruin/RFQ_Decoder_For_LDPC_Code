@@ -1,0 +1,1 @@
+./runner -Hfile 80211_irr_648_1296.txt -Gfile 80211_G.txt  -suf 092 -ebno 1.40 -tarerr 10 -ind 0 -layersize 54 -l 0  -r 0 -t H

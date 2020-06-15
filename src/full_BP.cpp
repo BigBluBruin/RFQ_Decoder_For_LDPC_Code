@@ -234,7 +234,7 @@ double check_node_operation_minstar(std::vector<double> & input)
 
 std::vector <double> check_node_operation_fast_minsum(std::vector<double> & input)
 {
-    std::vector <double> output(-1,input.size());
+    std::vector <double> output(input.size(),-1);
     int min_pos;
     double min_1, min_2;
     double total_sgn=1;
@@ -279,46 +279,31 @@ std::vector <double> check_node_operation_fast_minsum(std::vector<double> & inpu
     return output;
 }
 
-void display(std::vector<int> input)
-{
-    for (const auto aa:input)
-    {
-        std::cout<<aa<<"  ";
-    }
-    std::cout<<"  "<<std::endl;
 
-}
-void display(std::vector<std::vector<int>> input)
-{
-    for (const auto aa:input)
-    {
-        display(aa);
-    }
-}
 
 
 std::vector <double> check_sepcail_quan (int quan_size)
 {
-    std::vector<double> quan_file(-1,quan_size/2-1);
+    std::vector<double> quan_file(quan_size/2-1,-1);
     for (unsigned ii =0 ;ii <quan_file.size() ;ii++)
     {
-        quan_file[ii] = -(quan_size/2-1+ii)-0.2;
+        quan_file[ii] = -(quan_size/2-1-(int)ii)-0.2;
     }
     return quan_file;
 }
 
 std::vector <double> vari_sepcail_recons (int quan_size)
 {
-    std::vector<double> recons(-1,quan_size);
+    std::vector<double> recons(quan_size,-1);
     for (int ii =0 ;ii<quan_size ;ii++)
     {
         if(ii<quan_size/2)
         {
-            recons[ii] = ii -quan_size/2;
+            recons[ii] = ii - quan_size/2;
         }
         else
         {
-            recons[ii] = ii -quan_size/2+1;
+            recons[ii] = ii - quan_size/2+1;
         }        
     }
     return recons;

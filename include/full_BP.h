@@ -27,9 +27,29 @@ std::vector <double> check_node_operation_fast_minsum(std::vector<double> & inpu
 void LP(double &in, int l, int r);
 void quan_two_vec(std::vector<std::vector<double>>& aa, int l, int r);
 void quan_one_vec(std::vector<double> &aa, int l, int r);
-//--------------------------------------------------
-void display(std::vector<int> input);
-void display(std::vector<std::vector<int>> input);
+
+
 //--------------------------------------------------
 std::vector <double> check_sepcail_quan (int quan_size);
 std::vector <double> vari_sepcail_recons (int quan_size);
+
+//--------------------------------------------------
+template <class T>
+void display(std::vector<T> input)
+{
+    for (const auto aa:input)
+    {
+        std::cout<<aa<<"  ";
+    }
+    std::cout<<"  "<<std::endl;
+
+}
+
+template <class T>
+void display(std::vector<std::vector<T>> input)
+{
+    for (const auto aa:input)
+    {
+        display(aa);
+    }
+}

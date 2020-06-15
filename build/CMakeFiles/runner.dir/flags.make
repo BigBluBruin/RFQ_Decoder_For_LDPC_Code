@@ -6,5 +6,5 @@ CXX_FLAGS = -Wall -Wextra -O3
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/mnt/e/Gitrepo/RFQ_Decoder_For_LDPC_Code/include 
+CXX_INCLUDES = -I/home/nick/Documents/Gitpro/RFQ_Decoder_For_LDPC_Code/include 
 

@@ -8,10 +8,10 @@ CMakeFiles/runner.dir/src/Main.cpp.o
  ../include/channel_quantizer.h
  ../include/full_BP.h
  ../include/uniform_quantization.h
- /mnt/e/Gitrepo/RFQ_Decoder_For_LDPC_Code/src/Main.cpp
+ /home/nick/Documents/Gitpro/RFQ_Decoder_For_LDPC_Code/src/Main.cpp
 CMakeFiles/runner.dir/src/Parity_Check_Matrix_Info.cpp.o
  ../include/Parity_Check_Matrix_Info.h
- /mnt/e/Gitrepo/RFQ_Decoder_For_LDPC_Code/src/Parity_Check_Matrix_Info.cpp
+ /home/nick/Documents/Gitpro/RFQ_Decoder_For_LDPC_Code/src/Parity_Check_Matrix_Info.cpp
 CMakeFiles/runner.dir/src/Quantized_BP.cpp.o
  ../include/Parity_Check_Matrix_Info.h
  ../include/Quantized_BP.h
@@ -19,17 +19,17 @@ CMakeFiles/runner.dir/src/Quantized_BP.cpp.o
  ../include/channel_quantizer.h
  ../include/full_BP.h
  ../include/uniform_quantization.h
- /mnt/e/Gitrepo/RFQ_Decoder_For_LDPC_Code/src/Quantized_BP.cpp
+ /home/nick/Documents/Gitpro/RFQ_Decoder_For_LDPC_Code/src/Quantized_BP.cpp
 CMakeFiles/runner.dir/src/allocate_pointer.cpp.o
  ../include/allocate_pointer.h
- /mnt/e/Gitrepo/RFQ_Decoder_For_LDPC_Code/src/allocate_pointer.cpp
+ /home/nick/Documents/Gitpro/RFQ_Decoder_For_LDPC_Code/src/allocate_pointer.cpp
 CMakeFiles/runner.dir/src/channel_quantizer.cpp.o
  ../include/allocate_pointer.h
  ../include/channel_quantizer.h
- /mnt/e/Gitrepo/RFQ_Decoder_For_LDPC_Code/src/channel_quantizer.cpp
+ /home/nick/Documents/Gitpro/RFQ_Decoder_For_LDPC_Code/src/channel_quantizer.cpp
 CMakeFiles/runner.dir/src/full_BP.cpp.o
  ../include/full_BP.h
- /mnt/e/Gitrepo/RFQ_Decoder_For_LDPC_Code/src/full_BP.cpp
+ /home/nick/Documents/Gitpro/RFQ_Decoder_For_LDPC_Code/src/full_BP.cpp
 CMakeFiles/runner.dir/src/uniform_quantization.cpp.o
  ../include/uniform_quantization.h
- /mnt/e/Gitrepo/RFQ_Decoder_For_LDPC_Code/src/uniform_quantization.cpp
+ /home/nick/Documents/Gitpro/RFQ_Decoder_For_LDPC_Code/src/uniform_quantization.cpp

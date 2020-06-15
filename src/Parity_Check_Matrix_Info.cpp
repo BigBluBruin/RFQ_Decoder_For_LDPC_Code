@@ -21,7 +21,7 @@ bool Parity_Check_Matrix_Info::Read_Parity_Check_Matrix()
         //std::cout<<"vari: "<<vari_num<<"check: "<<check_num<<std::endl;
         rate = ((double)(vari_num - check_num)) / (double)(vari_num);
         vari_degreetable.resize(vari_num, 0);
-        check_degreetable.resize(vari_num, 0);
+        check_degreetable.resize(check_num, 0);
         //read variable node degree table
         for (int i = 0; i < vari_num; i++)
         {
