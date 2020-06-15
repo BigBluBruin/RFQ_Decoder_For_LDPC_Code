@@ -630,6 +630,7 @@ bool Quantized_BP::decoder_min(std::vector<double> cwds, int &iteration, std::ve
                 msg_c2v[h_ins.edge_c[ii][jj]] = check_recons[cur_iter][full_return_c];
             }
         }
+
         //v2c update
         for (int ii = 0; ii < h_ins.vari_num; ii++)
         {
@@ -1794,6 +1795,7 @@ bool Quantized_BP::decoder_min_horizontal_layered(std::vector<double> cwds, int 
     int dc;
     int cur_check_node,cur_vari;
     int total_layer_num;
+    //std::ofstream myfile ("llr.txt");
     if (h_ins.vari_num % layer_size != 0)
     {
         std::cout << "Info: variable number (" << h_ins.vari_num << ") is invisible by layer_size (" << layer_size << "). please check again." << std::endl;
@@ -1809,8 +1811,6 @@ bool Quantized_BP::decoder_min_horizontal_layered(std::vector<double> cwds, int 
     {
         rx[ii] = channel_recons[cq_ins.quantizer[Quantize(cwds[ii], quan_min, quan_max, interval, cq_ins.Partition_num)]];
     }
-    // display(rx);
-    // return false;
 
 
     for (int cur_iter = 0; cur_iter < max_iter; cur_iter++)
@@ -1821,21 +1821,14 @@ bool Quantized_BP::decoder_min_horizontal_layered(std::vector<double> cwds, int 
 
             starting_check = cur_layer * layer_size;
             end_check = (cur_layer + 1) * layer_size-1;
-            //std::cout<<starting_check<<" "<<end_check<<std::endl;
             for (cur_check_node = starting_check; cur_check_node <= end_check; cur_check_node++)
             {
                 dc = h_ins.check_degreetable[cur_check_node];
-                // std::cout<<h_ins.check_degreetable.size();
-                // return false;
-                // std::cout<<cur_check_node<<std::endl;
                 msg_v2c.assign(dc, -1);
-                int fllag = 0;
                 for (int ii = 0; ii < dc; ii++)
                 {
                     //update rx                  
                     cur_vari = h_ins.edge_relation[0][h_ins.edge_c[cur_check_node][ii]];
-                    if (cur_vari == 0)
-                        fllag = 1;
                     rx[cur_vari] -= msg_c2v[h_ins.edge_c[cur_check_node][ii]];
                     // get c->v msg
                     temp1 = rx[cur_vari];
@@ -1851,15 +1844,8 @@ bool Quantized_BP::decoder_min_horizontal_layered(std::vector<double> cwds, int 
                     //reconstruction
                     msg_v2c[ii] = rec_v[temp2_int];
                 }
-                if(fllag)
-                    display(msg_v2c);
                 //get updated c2v msgs
                 updated_c2v = check_node_operation_fast_minsum(msg_v2c);
-                // display(msg_v2c);
-                // display(updated_c2v);
-                // display(rec_v);
-                // return false;
-                // update Q function
                 for (int ii = 0; ii < dc; ii++)
                 {
                     cur_vari = h_ins.edge_relation[0][h_ins.edge_c[cur_check_node][ii]];
@@ -1868,7 +1854,7 @@ bool Quantized_BP::decoder_min_horizontal_layered(std::vector<double> cwds, int 
                     // reconstruction & update c2v msges
                     msg_c2v[h_ins.edge_c[cur_check_node][ii]] = check_recons[cur_iter][temp2_int];
                     // update posterior
-                    rx[cur_vari] += msg_c2v[h_ins.edge_c[cur_check_node][ii]];               
+                    rx[cur_vari] += msg_c2v[h_ins.edge_c[cur_check_node][ii]];
                 }
             }
            
@@ -1887,7 +1873,6 @@ bool Quantized_BP::decoder_min_horizontal_layered(std::vector<double> cwds, int 
                 summ++;
             }
         }
-        std::cout<<summ<<"-----"<<std::endl;
 
         //check sum
         if (iscwds(final_bits))
@@ -1903,6 +1888,7 @@ bool Quantized_BP::decoder_min_horizontal_layered(std::vector<double> cwds, int 
             return true;
         }
     }
+    //myfile.close();
     iteration = iteration + max_iter;
     return false;
 }

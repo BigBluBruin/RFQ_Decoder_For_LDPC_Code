@@ -269,11 +269,11 @@ std::vector <double> check_node_operation_fast_minsum(std::vector<double> & inpu
     {
         if(min_pos == ii)
         {
-            output[ii]=sgn(input[ii])*total_sgn*min_1;
+            output[ii]=sgn(input[ii])*total_sgn*min_2;
         }
         else
         {
-            output[ii]=sgn(input[ii])*total_sgn*min_2;
+            output[ii]=sgn(input[ii])*total_sgn*min_1;
         }        
     }
     return output;
